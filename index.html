@@ -16,10 +16,9 @@ body{
   overflow:hidden;
   font-family:monospace;
 }
-
 pre{
-  font-size:5px;
-  line-height:5px;
+  font-size:4.8px;
+  line-height:4.8px;
   letter-spacing:1px;
 }
 </style>
@@ -30,65 +29,65 @@ pre{
 
 <script>
 const img = new Image();
-img.src = "vinie.jpg";
+img.src="vinie.jpg";
 
-const letters = "VINIE";
-const output = document.getElementById("ascii");
+const chars="VINIEVINIEVINIE@@##**++..  ";
+const out=document.getElementById("ascii");
 
-img.onload = function(){
+img.onload=function(){
 
-  const canvas = document.createElement("canvas");
-  const ctx = canvas.getContext("2d");
+ const canvas=document.createElement("canvas");
+ const ctx=canvas.getContext("2d");
 
-  const width = 200;
-  const scale = img.height/img.width;
+ const width=240; // high detail
+ const scale=img.height/img.width;
 
-  canvas.width = width;
-  canvas.height = width*scale;
+ canvas.width=width;
+ canvas.height=width*scale;
 
-  ctx.drawImage(img,0,0,canvas.width,canvas.height);
-  const data = ctx.getImageData(0,0,canvas.width,canvas.height).data;
+ ctx.drawImage(img,0,0,canvas.width,canvas.height);
+ const data=ctx.getImageData(0,0,canvas.width,canvas.height).data;
 
-  let frame = 0;
+ let frame=0;
 
-  function draw(){
-    let ascii="";
+ function render(){
+  let ascii="";
 
-    for(let y=0;y<canvas.height;y++){
-      for(let x=0;x<canvas.width;x++){
+  for(let y=0;y<canvas.height;y++){
+   for(let x=0;x<canvas.width;x++){
 
-        const i=(y*canvas.width+x)*4;
-        const r=data[i];
-        const g=data[i+1];
-        const b=data[i+2];
+    const i=(y*canvas.width+x)*4;
+    const r=data[i];
+    const g=data[i+1];
+    const b=data[i+2];
 
-        const brightness=(r+g+b)/3;
+    const bright=(r+g+b)/3;
 
-        // remove bright background
-        if(brightness>185){
-          ascii+=" ";
-          continue;
-        }
-
-        // formation effect
-        if(Math.random() < frame/70){
-          ascii += letters[Math.floor(Math.random()*letters.length)];
-        } else {
-          ascii += " ";
-        }
-      }
-      ascii+="\n";
+    // remove background strongly
+    if(bright>210){
+      ascii+=" ";
+      continue;
     }
 
-    output.textContent = ascii;
-    frame++;
+    let index=Math.floor((bright/255)*(chars.length-1));
 
-    if(frame<80) requestAnimationFrame(draw);
+    if(Math.random()<frame/80){
+      ascii+=chars[index];
+    } else {
+      ascii+=" ";
+    }
+   }
+   ascii+="\n";
   }
 
-  draw();
+  out.textContent=ascii;
+  frame++;
+
+  if(frame<95) requestAnimationFrame(render);
+ }
+
+ render();
 };
 </script>
-
 </body>
 </html>
