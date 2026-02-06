@@ -31,19 +31,22 @@ body{
   margin-bottom:30px;
 }
 
-/* ascii block */
-pre{
-  display:;
-  font-size:6px;
-  line-height:6px;
+/pre{
+  display:block;
+  width:100%;
+  margin:0;
+  padding:10px 5px;
+  box-sizing:border-box;
+
   color:#ff2f92;
-  background:rgba(255,255,255,0.5);
-  padding:25px;
-  border-radius:20px;
-  box-shadow:0 0 40px rgba(255,105,180,0.4);
-  overflow:auto;
-  width:95vw;
+  background:rgba(255,255,255,0.35);
+
   white-space:pre;
+  overflow:hidden;
+
+  /* auto fit */
+  font-size: clamp(2px, 0.55vw, 9px);
+  line-height: clamp(2px, 0.55vw, 9px);
 }
 
 .msg{
