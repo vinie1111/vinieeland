@@ -1,112 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-.ascii-bg{
-  opacity:0;
-  animation:fadeIn 1.2s ease forwards;
-  animation-delay:0.3s;
-}
 
-@keyframes fadeIn{
-  to{opacity:1;}
-}
-</style>
 
 <meta charset="UTF-8">
 <title>Vinie Land</title>
-<style>
-html,body{
-  margin:0;
-  background:#ffc0cb;
-  overflow:hidden;
-}
-</style>
+
 <style>
 body{
   margin:0;
   background: linear-gradient(180deg,#ffd6e7,#ffc0cb,#ffb6c1);
   font-family:monospace;
-  overflow:hidden;
-}
-
-/* ascii full screen background */
-.ascii-bg{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100vw;
-  height:100vh;
-  z-index:1;
-  overflow:hidden;
-}
-
-/* title layer above ascii */
-.overlay{
-  position:relative;
-  z-index:2;
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  
-  text-align:center;
-}
-
-/* main title */
-.title{
-  font-size:80px;
-  letter-spacing:6px;
   color:#ff2f92;
-  text-shadow:0 0 25px rgba(255,0,130,0.4);
-  margin:0;
+}
+
+/* page width */
+.container{
+  max-width:1000px;
+  margin:0 auto;
+  text-align:center;
+  padding:40px 20px 80px;
+}
+
+/* title */
+.title{
+  font-size:72px;
+  letter-spacing:6px;
+  margin-bottom:10px;
 }
 
 /* subtitle */
 .subtitle{
-  font-size:18px;
-  color:#ff4fa3;
-  opacity:0.9;
-  margin-top:10px;
+  font-size:16px;
+  opacity:0.8;
+  margin-bottom:40px;
 }
 
+/* ascii frame box */
+.ascii-frame{
+  display:flex;
+  justify-content:center;
+  margin-bottom:40px;
+}
+
+/* ascii itself */
 pre{
-  position:absolute;
-  top:0;
-  left:0;
-  transform:none;
-  display:block;
-
-  width:100vw;
-  height:100vh;
   margin:0;
-  padding:0;
-  box-sizing:border-box;
-
-  color:#ff2f92;
-  background:none;
-  border:none;
+  padding:20px;
+  background:rgba(255,255,255,0.35);
+  border-radius:20px;
+  box-shadow:0 0 40px rgba(255,105,180,0.35);
 
   white-space:pre;
   overflow:hidden;
-  text-align:center;
 
-  font-size: min(0.55vw, 1.05vh);
-  line-height: min(0.55vw, 1.05vh);
-  letter-spacing:0px;
+  font-size: clamp(3px, 0.55vw, 9px);
+  line-height: clamp(3px, 0.55vw, 9px);
 }
 
-.msg{
-  margin-top:25px;
-  font-size:14px;
-  opacity:0.85;
+/* bottom content */
+.content{
+  font-size:16px;
+  line-height:1.6;
+  opacity:0.9;
+}
+
+.footer{
+  position:fixed;
+  bottom:10px;
+  width:100%;
+  font-size:13px;
+  opacity:0.5;
+  text-align:center;
 }
 </style>
 </head>
 
 <body>
+<div class="container">
 
-<div class="ascii-bg">
+<h1 class="title">vinie land</h1>
+  <p class="subtitle">this tiny corner of internet belongs to vinie</p>
+  
+  
+<div class="ascii-frame">
 
 <!-- IMAGE BEGINS HERE -->
 <pre id="tiresult" ><b style="color:#FFFFFF">vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vinie♡vini</b>
@@ -377,14 +354,16 @@ pre{
 
 </div>
 
-<div class="overlay">
-<h1 class="title">vinie land</h1>
-<p class="subtitle">this tiny corner of internet belongs to vinie</p>
 
-<p class="msg">
-heheheheheh 🌸
-</p>
+<div class="content">
+     <p>hi vinie 🌸</p>
+     <p>this is your little internet corner</p>
+     <p>more coming soon...</p>
+  </div>
 
 </div>
 
+<footer class="footer">
+  © vinie ♡
+</footer>
 </body></html>
